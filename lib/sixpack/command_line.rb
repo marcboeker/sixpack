@@ -7,7 +7,7 @@ module Sixpack
 
     BANNER = <<-EOS
 
-Usage: sixpack OPTIONS
+Usage: sixpack OPTIONS ASSET_FILE
 
 TODO: Sixpack is your right hand in asset compiling, bundling and deployment.
 
@@ -49,7 +49,6 @@ Options:
 
     def parse_options
       @options = {
-        config_path: '',
         watch: false,
         deploy: false,
         compile: false,
@@ -58,10 +57,6 @@ Options:
       }
       
       @option_parser = OptionParser.new do |opts|
-        opts.on('-a', '--asset PATH', 'path to assets.yml') do |config_path|
-          @options[:config_path] = config_path
-        end
-
         opts.on('-p', '--package NAME', 'only compile given package') do |package|
           @options[:package] = package
         end
@@ -90,6 +85,8 @@ Options:
 
       @option_parser.banner = BANNER
       @option_parser.parse!(ARGV)
+
+      @options[:config_path] = ARGV.first
     end
 
   end
