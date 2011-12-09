@@ -1,5 +1,7 @@
 = sixpack
 
+**Sixpack is currently very experimental and under subject of change. Please wait, until the API is fixed and stable.**
+
 Sixpack is your right hand when it comes to asset compiling, bundling and
 deployment. You define a package, tell Sixpack what should be included and
 where it should be deployed, and Sixpack will handle all the boring stuff for
