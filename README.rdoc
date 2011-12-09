@@ -1,0 +1,44 @@
+= sixpack
+
+Sixpack is your right hand when it comes to asset compiling, bundling and
+deployment. You define a package, tell Sixpack what should be included and
+where it should be deployed, and Sixpack will handle all the boring stuff for
+you.
+
+The included watch mode assists you while you are writing your code. Once you
+hit save, Sixpack compiles your package in the backend. No need to trigger
+anything manually.
+
+== Usage
+
+Usage: sixpack OPTIONS
+
+TODO: Sixpack is your right hand in asset compiling, bundling and deployment.
+
+Options:
+    -a, --asset PATH                 path to assets.yml
+    -p, --package NAME               only compile given package
+    -t, --type TYPE                  only compile packages of type {javascripts,stylesheets,images,files,all}
+    -w, --watch                      watch for changes
+    -c, --compile                    compile package
+    -d, --deploy                     deploy to specified target
+    -v, --version                    display Sixpack version
+
+== Configuration
+
+Will be expanded. For the moment have a look at examples.
+
+== Contributing to sixpack
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2011 Marc Boeker. See LICENSE.txt for
+further details.
