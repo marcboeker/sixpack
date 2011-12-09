@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2011-12-09"
   s.description = "Sixpack is just another jack of all trades asset compiling and deploying tool. It is standalone and helps you to automate asset handling for those of you that don't use the Rails Asset Pipeline."
   s.email = "marc.boeker@onchestra.com"
+  s.executables = ["sixpack"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -21,9 +22,9 @@ Gem::Specification.new do |s|
     "Gemfile.lock",
     "ext/yuicompressor-2.4.7.jar",
     "lib/sixpack.rb",
-    "lib/sixpack/assets/Item.rb",
     "lib/sixpack/assets/asset.rb",
     "lib/sixpack/assets/image.rb",
+    "lib/sixpack/assets/item.rb",
     "lib/sixpack/assets/javascript.rb",
     "lib/sixpack/assets/stylesheet.rb",
     "lib/sixpack/command_line.rb",
