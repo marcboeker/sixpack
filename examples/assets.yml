@@ -1,0 +1,51 @@
+---
+# Global settings, that will be merged with local settings.
+deploy:
+  base: /Users/marc/Development/project
+  s3_access_key_id: my_access_key
+  s3_secret_access_key: my_secret_passwort
+  gzip: true
+  minify: true
+
+# Type of packages (e.g. javascripts)
+javascripts:
+  website: # Name of package
+    development: assets/website/app.js # Local output path
+    production: s3://static.cdn.example.com/assets/website/app.js # Deployment target
+    obfuscate: true # What to do
+    files: # List of glob patterns. Order will be preserved.
+      - general/javascripts/jquery.js
+      - general/javascripts/jquery.ui.js
+      - website/coffeescripts/*.coffee
+      - general/coffeescripts/*.coffee      
+
+stylesheets:
+  website:
+    development: assets/website/app.css
+    production: s3://static.cdn.example.com/assets/website/app.css
+    compass: website
+    files:
+      - website/scss/*.scss
+
+  other:
+    development: assets/other/app.css
+    production: s3://static.cdn.example.com/assets/other/app.css
+    files:
+      - other/scss/*.scss
+      - other/stylesheets/test.css
+
+images:
+  test:
+    convert: jpg
+    compress: 20
+    development: /Users/marc/Desktop/document.jpg
+    production: ss3://static.cdn.example.com/assets/website/image.jpg
+    file: website/images/attachments/document.png
+
+# List of static files, that will be directly deployed.
+items:
+  images:
+    production: s3://static.cdn.example.com/assets/website/images
+    files:
+      - website/images/icons/element/*.png
+
