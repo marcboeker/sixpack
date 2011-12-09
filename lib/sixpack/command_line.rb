@@ -51,7 +51,7 @@ Options:
       @options = {
         watch: false,
         deploy: false,
-        compile: false,
+        compile: true,
         package: nil,
         type: 'all'
       }
