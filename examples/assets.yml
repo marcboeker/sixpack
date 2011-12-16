@@ -1,6 +1,6 @@
 ---
-# Global settings, that will be merged with local settings.
-deploy:
+# Default settings, that will be merged with local settings.
+defaults:
   base: /Users/marc/Development/project
   s3_access_key_id: my_access_key
   s3_secret_access_key: my_secret_passwort

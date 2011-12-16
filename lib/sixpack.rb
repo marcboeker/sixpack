@@ -60,7 +60,7 @@ module Sixpack
   end
 
   def self.config
-    @config['deploy'].dup
+    @config['defaults'].dup
   end
 
   def self.watcher(type, package)
@@ -72,7 +72,7 @@ module Sixpack
       end
     end
 
-    FSSM.monitor(@config['deploy']['base'], '**/*') do
+    FSSM.monitor(@config['defaults']['base'], '**/*') do
       update { |base, relative| compile.call(base, relative) }
     end
   end
