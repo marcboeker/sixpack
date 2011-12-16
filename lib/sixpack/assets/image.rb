@@ -1,3 +1,5 @@
+require 'Rmagick'
+
 module Sixpack
   module Assets
 
