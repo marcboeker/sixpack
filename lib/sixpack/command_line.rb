@@ -23,7 +23,10 @@ Options:
       if @options[:watch]
         Sixpack.watch(@options)
       elsif @options[:deploy]
-        Sixpack.deploy(@options)
+        puts "Are you sure, you want to deploy? (y/n)"
+        if gets.chomp == 'y'
+          Sixpack.deploy(@options)
+        end
       elsif @options[:compile]
         Sixpack.compile(@options)
       end
