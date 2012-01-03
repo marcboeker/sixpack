@@ -1,4 +1,5 @@
 require 'optparse'
+require 'highline/import'
 require File.expand_path(File.dirname(__FILE__) + '/../sixpack')
 
 module Sixpack
@@ -23,8 +24,8 @@ Options:
       if @options[:watch]
         Sixpack.watch(@options)
       elsif @options[:deploy]
-        puts "Are you sure, you want to deploy? (y/n)"
-        if gets.chomp == 'y'
+        result = ask('Are you sure, you want to deploy? (y/n)')
+        if result == 'y'
           Sixpack.deploy(@options)
         end
       elsif @options[:compile]

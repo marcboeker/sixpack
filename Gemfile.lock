@@ -14,6 +14,7 @@ GEM
       sass (~> 3.1)
     fssm (0.2.7)
     git (1.2.5)
+    highline (1.6.8)
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -42,6 +43,7 @@ DEPENDENCIES
   bundler
   compass
   fssm
+  highline
   jeweler
   mime-types
   rb-fsevent

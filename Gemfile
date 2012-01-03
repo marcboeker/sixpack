@@ -10,6 +10,7 @@ gem 'sass'
 gem 'aws-sdk'
 gem 'mime-types'
 gem 'rmagick'
+gem 'highline'
 
 group :development do
   gem 'jeweler'

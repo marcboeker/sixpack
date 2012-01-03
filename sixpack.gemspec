@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marc Boeker"]
-  s.date = "2011-12-16"
+  s.date = "2012-01-03"
   s.description = "Sixpack is just another jack of all trades asset compiling and deploying tool. It is standalone and helps you to automate asset handling for those of you that don't use the Rails Asset Pipeline."
   s.email = "marc.boeker@onchestra.com"
   s.executables = ["sixpack"]
@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<aws-sdk>, [">= 0"])
       s.add_runtime_dependency(%q<mime-types>, [">= 0"])
       s.add_runtime_dependency(%q<rmagick>, [">= 0"])
+      s.add_runtime_dependency(%q<highline>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
@@ -63,6 +64,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<aws-sdk>, [">= 0"])
       s.add_dependency(%q<mime-types>, [">= 0"])
       s.add_dependency(%q<rmagick>, [">= 0"])
+      s.add_dependency(%q<highline>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
@@ -76,6 +78,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<aws-sdk>, [">= 0"])
     s.add_dependency(%q<mime-types>, [">= 0"])
     s.add_dependency(%q<rmagick>, [">= 0"])
+    s.add_dependency(%q<highline>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rcov>, [">= 0"])
   end
