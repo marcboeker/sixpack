@@ -1,20 +1,20 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    awesome_print (1.0.1)
-    aws-sdk (1.2.3)
+    awesome_print (1.0.2)
+    aws-sdk (1.2.6)
       httparty (~> 0.7)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     chunky_png (1.2.5)
-    compass (0.11.5)
+    compass (0.11.6)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    fssm (0.2.7)
+    fssm (0.2.8)
     git (1.2.5)
-    highline (1.6.8)
+    highline (1.6.9)
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -22,7 +22,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    json (1.6.3)
+    json (1.6.4)
     mime-types (1.17.2)
     multi_json (1.0.4)
     multi_xml (0.4.1)
@@ -31,7 +31,7 @@ GEM
     rb-fsevent (0.4.3.1)
     rcov (0.9.11)
     rmagick (2.13.1)
-    sass (3.1.10)
+    sass (3.1.12)
     uuidtools (2.1.2)
 
 PLATFORMS
