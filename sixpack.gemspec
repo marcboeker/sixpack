@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "sixpack"
-  s.version = "0.2.3"
+  s.version = "0.2.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marc Boeker"]
-  s.date = "2012-01-03"
+  s.date = "2012-01-05"
   s.description = "Sixpack is just another jack of all trades asset compiling and deploying tool. It is standalone and helps you to automate asset handling for those of you that don't use the Rails Asset Pipeline."
   s.email = "marc.boeker@onchestra.com"
   s.executables = ["sixpack"]
