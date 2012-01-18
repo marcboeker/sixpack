@@ -14,7 +14,7 @@ module Sixpack
         elsif @opts['minify']
           minify
         end
-        
+
         gzip if @opts['gzip']
       end
 
@@ -32,11 +32,11 @@ module Sixpack
       end
   
       def minify
-        run_yui_compressor(false)
+        run_yui_compressor('js', false)
       end
 
       def obfuscate
-        run_yui_compressor
+        run_yui_compressor('js')
       end
       
     end

@@ -48,7 +48,7 @@ module Sixpack
       end
 
       def minify
-        run_yui_compressor
+        run_yui_compressor('css')
       end
       
     end

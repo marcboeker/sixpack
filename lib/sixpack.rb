@@ -127,6 +127,8 @@ module Sixpack
 
     handler = handler.new(opts)
     handler.package
+    handler.prepare_deploy if opts['postprocess']
+    
     @ignore << handler.save
 
     if opts['mode'] == :production

@@ -79,12 +79,12 @@ module Sixpack
       files
     end
 
-    def run_yui_compressor(munge=false)
+    def run_yui_compressor(type, munge = false)
       munge = munge ? '' : '--nomunge'
       path = File.expand_path(File.dirname(__FILE__))
       path = File.expand_path(path + '/../../../ext/yuicompressor-2.4.7.jar')
 
-      system("java -jar #{path} #{munge} #{@file} -o #{@tmpfile}")
+      system("java -jar #{path} #{munge} --type #{type} #{@tmpfile} -o #{@tmpfile}")
     end
 
     def make_hash(file, ext)
