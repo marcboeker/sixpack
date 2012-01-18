@@ -85,6 +85,8 @@ module Sixpack
     end
 
     types.each do |type|
+      next unless @config[type]
+      
       @config[type].each do |name, data|
         next if package && package != name
 
