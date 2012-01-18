@@ -12,6 +12,7 @@ javascripts:
   website: # Name of package
     development: assets/website/app.js # Local output path
     production: s3://static.cdn.example.com/assets/website/app.js # Deployment target
+    postprocess: true # Run minifications and optimizations on development file
     obfuscate: true # What to do
     files: # List of glob patterns. Order will be preserved.
       - general/javascripts/jquery.js
