@@ -12,12 +12,19 @@ require 'sixpack/assets/image.rb'
 require 'sixpack/assets/javascript.rb'
 require 'sixpack/assets/stylesheet.rb'
 
+require 'sixpack/assets/adapters/less.rb'
+require 'sixpack/assets/adapters/sass.rb'
+require 'sixpack/assets/adapters/compass.rb'
+require 'sixpack/assets/adapters/css.rb'
+require 'sixpack/assets/adapters/js.rb'
+require 'sixpack/assets/adapters/coffeescript.rb'
+
 require 'sixpack/deploy/handler.rb'
 require 'sixpack/deploy/s3.rb'
 require 'sixpack/deploy/file_system.rb'
 
 module Sixpack
-  VERSION = '0.0.1'
+  VERSION = '0.4.0'
   @ignore = Set.new
 
   class << self
