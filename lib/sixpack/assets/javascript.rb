@@ -4,7 +4,11 @@ module Sixpack
     class Javascript < Asset
         
       def package
-        build(coffee: ->(file) { compile_coffeescript(file) })
+        build({
+          coffee: ->(src, dest, opts) { Adapters::Coffeescript.compile(src, dest, opts) },
+          js: ->(src, dest, opts) { Sixpack::Assets::Adapters::Js.compile(src, dest, opts) }
+        })
+
         join
       end
 
@@ -19,17 +23,6 @@ module Sixpack
       end
 
       private
-
-      def compile_coffeescript(file)
-        hash = make_hash(file, 'js')
-        dest = File.join(Dir.tmpdir, hash)
-        
-        unless File.exists?(dest)
-          system("coffee -cbp #{file} > #{dest}")
-        end
-
-        dest
-      end
   
       def minify
         run_yui_compressor('js', false)

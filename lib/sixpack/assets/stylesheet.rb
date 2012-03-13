@@ -10,11 +10,11 @@ module Sixpack
     class Stylesheet < Asset
     
       def package
-        if @opts['compass']
-          compile_compass
-        else
-          build(scss: ->(file) { compile_scss(file) })
-        end
+        build({
+          compass: ->(src, dest, opts) { Adapters::Compass.compile(src, dest, opts) },
+          scss: ->(src, dest, opts) { Sixpack::Assets::Adapters::Sass.compile(src, dest, opts) },
+          less: ->(src, dest, opts) { Sixpack::Assets::Adapters::Less.compile(src, dest, opts) }
+        })
                
         join
       end
@@ -26,29 +26,15 @@ module Sixpack
 
       private
       
-      def compile_scss(file)
-        hash = make_hash(file, 'css')
-        dest = File.join(Dir.tmpdir, hash)
-        
-        unless File.exists?(dest)
-          system("scss #{file}:#{dest}")
-        end
-        
-        dest
-      end
-
-      def compile_compass
-        compass = File.join(@opts['base'], @opts['compass'])
-        hash = make_hash(compass, 'compass')
-        dest = File.join(Dir.tmpdir, hash)        
-        
-        system("compass compile #{compass} --css-dir #{dest} -q")
-        
-        @files = Dir.glob("#{dest}/*")
-      end
-
       def minify
         run_yui_compressor('css')
+      end
+
+      def wrap
+        data = File.read(@tmpfile)
+        File.open(@tmpfile, 'w') do |fh|
+          fh.write("#{@opts['wrap']}{#{data}}")
+        end
       end
       
     end

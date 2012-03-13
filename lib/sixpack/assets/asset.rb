@@ -23,12 +23,14 @@ module Sixpack
         @opts['development']
       end
 
+      @file = File.expand_path(@file)
+
       @opts.merge!('file' => @file)
 
       FileUtils.cp(@tmpfile, @file)
       Sixpack.log("=> #{@file}", :blue)
 
-      @file
+      File.realpath(@file)
     end
 
     def prepare_deploy
@@ -48,13 +50,19 @@ module Sixpack
 
     def build(mapping)
       files = []
-      @files.map do |file|
-        Sixpack.log("+ #{file}", :yellow)
+      @files.map do |src|
+        Sixpack.log("+ #{src}", :yellow)
 
-        out = file
+        out = src
         mapping.each do |k,v|
-          if file.match(/\.#{k}$/)
-            out = v.call(file)
+          if src.match(/\.#{k}$/)
+            hash = make_hash(src, extension_from_type(@opts['type']))
+            dest = File.join(Dir.tmpdir, hash)
+
+            unless !@opts['force_compile'] && File.exists?(dest)
+              v.call(src, dest, @opts)
+            end
+            out = dest
           end
         end
           
@@ -62,6 +70,13 @@ module Sixpack
       end
 
       @files = files
+    end
+
+    def extension_from_type(type)
+      case(type)
+      when 'stylesheets' then 'css'
+      when 'javascripts' then 'js'
+      end
     end
 
     def resolve_files
