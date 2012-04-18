@@ -137,11 +137,16 @@ module Sixpack
 
     handler = handler.new(opts)
     handler.package
+
+    placeholders = opts['placeholders'] || {}
+    handler.process_placeholders(placeholders[opts['mode'].to_s])
+
     handler.prepare_deploy if opts['postprocess']
 
     @ignore << handler.save
 
     if opts['mode'] == :production
+      handler.process_placeholders(opts['placeholders']['production'])
       handler.prepare_deploy
       handler.deploy
     end

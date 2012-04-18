@@ -1,7 +1,7 @@
 module Sixpack
 
   class Asset
-    
+
     def initialize(opts)
       @opts = opts
       @tmpfile = File.join(Dir.tmpdir, Time.now.to_i.to_s + opts['name'])
@@ -10,6 +10,20 @@ module Sixpack
       @files = resolve_files
 
       Sixpack.log("\n# #{opts['type']}: #{opts['name']}", :red)
+    end
+
+    def process_placeholders(placeholders)
+      data = File.read(@tmpfile)
+
+      data.gsub!(/\{\{\s*(\w+)\s*(.*)?\}\}/) do |token|
+        if variable_name = token.match(/(\w+)/)
+          if placeholders.has_key?(variable_name[1])
+            placeholders[variable_name[1]]
+          end
+        end
+      end
+
+      File.open(@tmpfile, 'w+') { |f| f.write(data) }
     end
 
     def package
@@ -65,7 +79,7 @@ module Sixpack
             out = dest
           end
         end
-          
+
         files << out
       end
 
@@ -104,7 +118,7 @@ module Sixpack
 
     def make_hash(file, ext)
       hash = "#{file}:#{File.mtime(file)}"
-      
+
       "#{Digest::SHA1.hexdigest(hash)}.#{ext}"
     end
 
@@ -116,14 +130,14 @@ module Sixpack
         gz.write(data)
       end
     end
-    
+
     def join
       File.open(@tmpfile, 'w+') do |fh|
         @files.each { |file| fh.write(File.read(file) + "\n") }
         fh.flush
       end
     end
-    
+
   end
 
 end
