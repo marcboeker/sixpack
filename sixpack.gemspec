@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "sixpack"
-  s.version = "0.4.0"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marc Boeker"]
-  s.date = "2012-03-13"
+  s.date = "2012-04-18"
   s.description = "Sixpack is just another jack of all trades asset compiling and deploying tool. It is standalone and helps you to automate asset handling for those of you that don't use the Rails Asset Pipeline."
   s.email = "marc.boeker@onchestra.com"
   s.executables = ["sixpack"]
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "lib/sixpack/assets/adapters/coffeescript.rb",
     "lib/sixpack/assets/adapters/compass.rb",
     "lib/sixpack/assets/adapters/css.rb",
+    "lib/sixpack/assets/adapters/handlebars.rb",
     "lib/sixpack/assets/adapters/js.rb",
     "lib/sixpack/assets/adapters/less.rb",
     "lib/sixpack/assets/adapters/sass.rb",
@@ -41,7 +42,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/marcboeker/sixpack"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.21"
   s.summary = "Sixpack is a standalone asset compile, bundle and deploy tool."
 
   if s.respond_to? :specification_version then
