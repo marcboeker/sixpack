@@ -2,11 +2,12 @@ module Sixpack
   module Assets
 
     class Javascript < Asset
-        
+
       def package
         build({
           coffee: ->(src, dest, opts) { Adapters::Coffeescript.compile(src, dest, opts) },
-          js: ->(src, dest, opts) { Sixpack::Assets::Adapters::Js.compile(src, dest, opts) }
+          js: ->(src, dest, opts) { Adapters::Js.compile(src, dest, opts) },
+          hbs: ->(src, dest, opts) { Adapters::Handlebars.compile(src, dest, opts) }
         })
 
         join
@@ -14,7 +15,7 @@ module Sixpack
 
       def prepare_deploy
         if @opts['obfuscate']
-          obfuscate   
+          obfuscate
         elsif @opts['minify']
           minify
         end
@@ -23,7 +24,7 @@ module Sixpack
       end
 
       private
-  
+
       def minify
         run_yui_compressor('js', false)
       end
@@ -31,8 +32,8 @@ module Sixpack
       def obfuscate
         run_yui_compressor('js')
       end
-      
+
     end
-  
+
   end
 end

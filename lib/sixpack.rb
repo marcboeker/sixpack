@@ -18,6 +18,7 @@ require 'sixpack/assets/adapters/compass.rb'
 require 'sixpack/assets/adapters/css.rb'
 require 'sixpack/assets/adapters/js.rb'
 require 'sixpack/assets/adapters/coffeescript.rb'
+require 'sixpack/assets/adapters/handlebars.rb'
 
 require 'sixpack/deploy/handler.rb'
 require 'sixpack/deploy/s3.rb'
@@ -36,7 +37,7 @@ module Sixpack
 
     def watch(config)
       Signal.trap('INT') { puts "\nStop tracking changes."; exit }
-      
+
       @config = parse_config(config[:config_path])
       watcher(config[:type], config[:package])
     end
@@ -73,7 +74,7 @@ module Sixpack
   def self.watcher(type, package)
     compile = ->(base, relative) do
       file = File.join(base, relative)
-      
+
       unless @ignore.include?(file)
         Sixpack.process(:development, type, package)
       end
@@ -93,7 +94,7 @@ module Sixpack
 
     types.each do |type|
       next unless @config[type]
-      
+
       @config[type].each do |name, data|
         next if package && package != name
 
@@ -110,7 +111,7 @@ module Sixpack
       # FIXME: This is way too ugly.
       @config['items'].each do |name, data|
         next if package && package != name
-        
+
         data['files'].each do |pattern|
           Dir.glob(File.join(config['base'], pattern)).each do |file|
             opts = config.merge(
@@ -137,7 +138,7 @@ module Sixpack
     handler = handler.new(opts)
     handler.package
     handler.prepare_deploy if opts['postprocess']
-    
+
     @ignore << handler.save
 
     if opts['mode'] == :production
