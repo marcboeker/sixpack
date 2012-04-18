@@ -56,6 +56,7 @@ Options:
         watch: false,
         deploy: false,
         compile: false,
+        force_compile: false,
         package: nil,
         type: 'all'
       }
@@ -76,6 +77,10 @@ Options:
         opts.on('-c', '--compile', 'compile package') do |watch|
           @options[:compile] = true
         end
+
+        opts.on('-f', '--force-compile', 'force compile') do |watch|
+          @options[:force_compile] = true
+        end        
         
         opts.on('-d', '--deploy', 'deploy to specified target') do |deploy|
           @options[:deploy] = true

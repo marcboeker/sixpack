@@ -59,7 +59,7 @@ module Sixpack
             hash = make_hash(src, extension_from_type(@opts['type']))
             dest = File.join(Dir.tmpdir, hash)
 
-            unless !@opts['force_compile'] && File.exists?(dest)
+            if @opts[:force_compile] || !File.exists?(dest)
               v.call(src, dest, @opts)
             end
             out = dest
