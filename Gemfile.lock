@@ -25,7 +25,7 @@ GEM
     json (1.6.4)
     mime-types (1.17.2)
     multi_json (1.0.4)
-    multi_xml (0.4.1)
+    multi_xml (0.6.0)
     nokogiri (1.5.0)
     rake (13.0.1)
     rb-fsevent (0.4.3.1)
