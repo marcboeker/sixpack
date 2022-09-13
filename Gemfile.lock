@@ -24,6 +24,7 @@ GEM
     json (1.8.6)
     mime-types (1.17.2)
     mini_portile2 (2.8.0)
+    multi_json (1.0.4)
     multi_xml (0.6.0)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
