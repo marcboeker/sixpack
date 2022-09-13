@@ -15,14 +15,13 @@ GEM
     fssm (0.2.8)
     git (1.2.5)
     highline (1.6.9)
-    httparty (0.8.1)
-      multi_json
-      multi_xml
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     jeweler (1.6.4)
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    json (1.6.4)
+    json (1.8.6)
     mime-types (1.17.2)
     mini_portile2 (2.8.0)
     multi_json (1.0.4)
