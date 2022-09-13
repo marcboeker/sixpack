@@ -22,7 +22,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    json (1.6.4)
+    json (1.8.6)
     mime-types (1.17.2)
     mini_portile2 (2.8.0)
     multi_json (1.0.4)
