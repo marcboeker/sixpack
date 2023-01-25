@@ -1,3 +1,5 @@
+= This repo has been archived!
+
 = sixpack
 
 **Sixpack is currently very experimental and under subject of change. Please wait, until the API is fixed and stable.**
